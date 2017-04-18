@@ -43,5 +43,26 @@ tapply_combine_result <- data.frame(tapply_len_result,tapply_dose_result)
 ############################################################
 
 
+############Performance Measurement#####################################
+
+timespent_bank = list()
+bank_data <- read.csv("bank.csv", stringsAsFactors = F)
+
+
+timespent_bank[["aggregate"]] = system.time(
+aggregate_result <- aggregate(bank_data$salary,list(bank_data$job),mean))
+print(timespent_bank[["aggregate"]])
+
+#  Output user  system elapsed 
+#         0.19    0.00    0.19
+
+
+timespent_bank[["tapply"]] = system.time(
+  tapply_result <- tapply(bank_data$salary,bank_data$job,mean))
+print(tapply_result)
+print(timespent_bank[["tapply"]])
+
+#Output: user  system elapsed 
+#        0.01    0.00    0.01 
 
 
