@@ -12,5 +12,7 @@ data_file <- "popularity.csv"
 #construct data file path from config file
 abs_datafile_path <- paste(base_dir,data_dir,data_file, sep="")
 
-#read data file
+# read data file
+# adopting this approach deployment team is free 
+# to configure the location of files in Production environment
 popularity_data <- read.csv(abs_datafile_path, stringsAsFactors = F)
