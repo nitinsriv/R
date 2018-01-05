@@ -1,0 +1,177 @@
+# Task 0: Store data on S3
+# data stored on s3://cdrtelecomitalia/
+
+
+# create external table with columns integer
+# tab \t used as delimiter for importing data from txt file.
+# 
+tblproperties ='serialization.null.format'='', used for displaying NULL for emty values
+# data loaded from s3 bucket
+
+CREATE EXTERNAL TABLE if not exists telecom_italia(Id int, TimeInterval int, Countrycode int,
+
+SMSIn int, SMSOut int, CallIn int, CallOut int, InternetTraffic int) 
+
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+
+LOCATION "s3://cdrtelecomitalia/"
+tblproperties('serialization.null.format'='');
+
+
+
+
+# Task 1: Understand the data in hand
+
+# observed the values for columns are imported as integer are rounded as integers without any decimal places.
+# change column type of these variables to decimal with precicion 25 and scale 20
+
+alter table telecom_italia change timeinterval timeinterval bigint
+alter table telecom_italia change smsin smsin decimal (25,20)
+alter table telecom_italia change smsout smsout decimal (25,20)
+
+alter table telecom_italia change callin callin decimal (25,20)
+alter table telecom_italia change callout callout decimal (25,20)
+alter table telecom_italia change internettraffic internettraffic decimal (25,20)
+
+
+# Task 2: Writing Hive Queries - I
+
+# analysing telecom data of three countries (country_code = 39, 43, 33)
+# create external table for storing data for country_code = 39, 43, 33
+
+create external table if not exists telecom_italia_filtered
+(Id int, TimeInterval bigint, Countrycode int,
+
+SMSIn decimal(25,20), SMSOut decimal(25,20), CallIn decimal(25,20), CallOut decimal(25,20),
+InternetTraffic decimal(25,20))
+
+# insert data into new table for country_code = 39, 43, 33
+
+insert overwrite table telecom_italia_filtered
+select Id,TimeInterval,Countrycode,SMSIn,SMSOut,CallIn,CallOut,InternetTraffic
+from telecom_italia
+WHERE countrycode = 39 OR countrycode = 43 OR countrycode = 33
+
+# 1. Number of unique grids (square_ids) are there in total in the given three countries
+
+select count(distinct id) from telecom_italia_filtered
+	240
+
+# Ans. 240
+
+
+
+# 2. Country that has the minimum total internet activity 
+
+select countrycode, sum(internettraffic) as TotalInternettraffic from telecom_italia_filtered 
+group by countrycode order by TotalInternettraffic asc 
+limit 1
+
+ 	countrycode	totalinternettraffic
+1	43		0.15030947993294430560
+
+# Ans. 43
+
+
+# 3. Country having the second highest total activity
+
+select countrycode, sum(smsin) + sum(smsout) + sum(callin) + sum(callout)
++ sum(internettraffic) as totalActivity 
+from telecom_italia_filtered 
+group by countrycode
+order by totalActivity desc
+limit 2
+
+ 	countrycode	totalactivity
+1	39		568225.0502568718078577442
+2	33		205.9074176594690386210
+
+# Ans. 33
+
+
+#4. squareID that has the maximum total SMS activity in these three countries
+select id, sum(smsin) + sum(smsout) as totalActivity 
+from telecom_italia_filtered 
+group by id
+order by totalActivity desc
+limit 1
+
+ 	id	totalactivity
+1	1151	2063.55138983924149665200
+
+# Ans. 1151
+
+
+# 5. total activity for the three countries
+
+# create external table in compressed format.
+# STORED AS ORC tblproperties ("orc.compress"="ZLIB");
+
+create external table if not exists telecom_italia_filtered_orc
+(Id int, TimeInterval bigint, Countrycode int,
+
+SMSIn decimal(25,20), SMSOut decimal(25,20), CallIn decimal(25,20), CallOut decimal(25,20),
+InternetTraffic decimal(25,20))
+
+STORED AS ORC tblproperties ("orc.compress"="ZLIB");
+
+# insert data in new compressed table
+INSERT INTO telecom_italia_filtered_orc SELECT * from telecom_italia_filtered
+
+select sum(smsin) + sum(smsout) + sum(callin) + sum(callout)
++ sum(internettraffic) as totalActivity from telecom_italia_filtered_orc
+
+ 	totalactivity
+1	568447.5666036968831987641
+
+Ans. 568447.566
+
+
+# Task 3: Writing Hive Queries - II
+
+# create external table with partition on country code.
+create external table if not exists telecom_italia_filtered_partitioned1
+(Id int, TimeInterval bigint, 
+SMSIn decimal(25,20), 
+SMSOut decimal(25,20), CallIn decimal(25,20), CallOut decimal(25,20),
+InternetTraffic decimal(25,20))
+partitioned by (countrycode int)
+
+# To load the partitions dynamically
+SET hive.exec.dynamic.partition = true;
+SET hive.exec.dynamic.partition.mode = nonstrict;
+
+# insert all data in to new partitioned table from table created in task 2.
+INSERT into telecom_italia_filtered_partitioned1 PARTITION (countrycode)
+
+Select id,timeinterval,smsin,smsout,callin,callout,internettraffic,countrycode FROM telecom_italia_filtered
+
+# 1. total call activity from the three square_ids 101, 102 and 103 to country_code 39
+select sum(callin) + sum(callout) as totalCalltime from telecom_italia_filtered_partitioned1
+where countrycode = 39 AND (id=101 OR id =102 OR id=103)
+
+ 	totalcalltime
+1	290.82124559696230134490
+
+# Ans. 290.821
+
+
+# 2. total SMS activity from the three square_ids 101, 102 and 103 to country_code 39
+select sum(smsin) + sum(smsout) as totalSMStime from telecom_italia_filtered_partitioned1
+where countrycode = 39 AND (id=101 OR id =102 OR id=103)
+
+ 	totalsmstime
+1	622.23240588674230623430
+
+# Ans. 622.232
+
+
+# 3. total activity from the three square_ids 101, 102 and 103 to country_code 39
+select sum(smsin) + sum(smsout) + sum(callin) + sum(callout)
+	+ sum(internettraffic) as totalActivity from telecom_italia_filtered_partitioned1
+	where countrycode = 39 AND (id=101 OR id =102 OR id=103)
+
+ 	totalactivity
+1	5344.6365545464501055792
+
+# Ans. 5344.636
