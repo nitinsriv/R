@@ -1,0 +1,85 @@
+An automobile consultancy firm wants to find out factors affecting pricing of a car in American Market. 
+This consultancy firm has managed to collect a large dataset of different types of cars across the Americal market - 
+based on some market surveys.
+
+The aim of my execrcise was to evolve some equation which can be used to evaluate pricing from the data given. 
+
+Looking at this data, we have some columns with numeric values while others with string values.
+for eg - stroke, compression, horsepower were some numeric columns while engine location if it is front or rear, 
+carbody - if it sedan, wagon, hatchback were holding string values.
+
+Also there is a variable named carname which has value like alfa-romero Quadrifoglio. 
+The values of this variable were transformed to capture only company name.
+
+Now since I want to have a algebric equation for price of car, this would require to covert columns with non numeric values 
+to one with numeric values.
+
+I started with first converting variables with two values into numeric values with values as 0,1.
+fueltype: diesle - 1; gas - 0
+aspiration: std - 1; turbo - 0
+doornumber:  four - 1; two - 0
+enginelocation: front - 1; rear - 0
+
+
+In oreder to assign weights and include the variables with limited set of string values, dummy variables were created with value 0 and 1. 
+Later the original columns were removed. 
+carbodyconvertible, symboling, drivewheel, enginetype, cylindernumber, fuelsystem.
+
+After this data preparation, I checked for NA values in data. I also removed duplicates rows.
+Then I moved on to check if there are outliners values for some variables, since they could influence the weights of variables.
+Approach adopted to remove outliners was to identify significant 
+jump above 90% of distribution and then replace those observations with immediate previous values.
+
+Variables treated for outliner were: wheelbase, curbweight, enginesize,compressionration, horsepower, peakrpm, citympg,highwaympg
+
+Then I wanted to understadn how different variables are correlated.
+So I draw a co-relation plot.
+
+After outliner treatment data was divided in to train and test data in 70:30 proportion.
+
+After this I started with model generation on test data. I used stepAIC to get first list of dependent 
+variables.
+p-value and VIF were used together to remove variable. Since high p value suggests insignificant and 
+high VIF suggest colinearilty.
+
+Only one variable was removed at a time on p-value and VIF criteria and model was generated again.
+In case of conflicts I also used which variable has high co-relation on price. For eg. 
+cylinder number six and cylinder number four were negatively correlated. however it was found cylinder number six was less correlated 
+to price,so it was removed.
+
+In total 36 models were tested and the final one showed only three variables:
+enginelocation + curbweight + CarNametoyota, data=train
+
+# Adjusted R-squared:  0.7737
+# no linear dependedncy between models.
+
+then I proceed to predict the prices using the 36th model on test data and then evaluated the r-square value 
+between predicted and actual prices.
+
+In order to improved model, I then took  36th model as base and started adding some variables and then removing 
+other one at a time. Adjusted R-square and correlation between predicted prices and actual proces was used to 
+evaluate model. VIF and p-value was usedot evaluate variables and finally the 45th model showed  
+Adjusted R-squared:  0.8435
+and predicted values were found much closer to actual values.
+
+
+#  Final model shows below independent variables for dependent variable 'price':
+          
+#          - enginelocation (value 1 or 0) front -1
+#          - curbweight (continuous variable)
+#          - symboling value 1. (symboling with value 4 maps to 1 on original scale. value can be 1 or 0)
+#          - enginetypel. (value can be 1 or 0)
+#          - carbody, if it is a wagon. (value can be 1 or 0)
+#          - car company if Toyota, BMW, Jaguar 
+#                 - CarNametoyota (value can be 1 or 0)
+#                 - CarNamebmw (value can be 1 or 0)
+#                 - CarNamejaguar(value can be 1 or 0)
+
+
+#  price = -3.638e+03 + (1.378e+01)*curbweight + (6.842e+03)*CarNamebmw + (7.296e+03)*CarNamejaguar +
+#           (1.517e+03)*symboling4 - (1.801e+04)*enginelocation - (2.213e+03)*CarNametoyota -
+#           (4.778e+03)*enginetypel - (2.930e+03)*carbodywagon
+
+
+
+

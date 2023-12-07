@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10200.17.0328.0755                               -->
+<workbook source-build='10.2.1 (10200.17.0328.0755)' source-platform='win' version='10.2' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Virat_Kohli_ODI_changed' inline='true' name='federated.0p02n521q2hav112a0qdr1b5ig79' version='10.2'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Virat_Kohli_ODI_changed' name='textscan.1wkw3wn0itokeo159uuef13c4qcb'>
+            <connection class='textscan' directory='C:/IIITB/Data visualization' filename='Virat_Kohli_ODI_changed.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1wkw3wn0itokeo159uuef13c4qcb' name='Virat_Kohli_ODI_changed.csv' table='[Virat_Kohli_ODI_changed#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Runs' ordinal='0' />
+            <column datatype='integer' name='Mins' ordinal='1' />
+            <column datatype='integer' name='BF' ordinal='2' />
+            <column datatype='integer' name='4s' ordinal='3' />
+            <column datatype='integer' name='6s' ordinal='4' />
+            <column datatype='real' name='SR' ordinal='5' />
+            <column datatype='integer' name='Pos' ordinal='6' />
+            <column datatype='string' name='Dismissal' ordinal='7' />
+            <column datatype='integer' name='Inns' ordinal='8' />
+            <column datatype='string' name='Opposition' ordinal='9' />
+            <column datatype='string' name='Ground' ordinal='10' />
+            <column datatype='date' name='Start Date' ordinal='11' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Runs</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Runs]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Runs</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Mins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Mins]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Mins</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BF</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[BF]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>BF</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>4s</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[4s]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>4s</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6s</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[6s]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>6s</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SR</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SR]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>SR</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pos</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Pos]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Pos</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Dismissal</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Dismissal]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Dismissal</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Inns</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Inns]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Inns</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Opposition</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Opposition]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Opposition</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Ground</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Ground]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Ground</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Start Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Start Date]</local-name>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias>Start Date</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;date&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Virat_Kohli_ODI_changed.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='4S' datatype='integer' name='[4s]' role='measure' type='quantitative' />
+      <column caption='6S' datatype='integer' name='[6s]' role='measure' type='quantitative' />
+      <column caption='Inns Avg' datatype='real' name='[Calculation_1032450224440016909]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='Sum([Runs - Split 2])/COUNT([Inns])' />
+      </column>
+      <column caption='Avg SR' datatype='real' name='[Calculation_1032450224449036315]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([SR])/3' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[Runs - Split 2 (bin)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='1' formula='[Runs - Split 2]' peg='0' size='10.5' />
+      </column>
+      <column caption='Runs - Split 2' datatype='integer' datatype-customized='true' name='[Runs - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [Runs], &quot;*&quot;, 1 ) ))' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.435685' measure-ordering='alphabetic' measure-percentage='0.564315' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Graph 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Virat_Kohli_ODI_changed' name='federated.0p02n521q2hav112a0qdr1b5ig79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0p02n521q2hav112a0qdr1b5ig79'>
+            <column caption='Inns Avg' datatype='real' name='[Calculation_1032450224440016909]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='Sum([Runs - Split 2])/COUNT([Inns])' />
+            </column>
+            <column datatype='integer' name='[Inns]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Opposition]' role='dimension' type='nominal' />
+            <column caption='Runs - Split 2' datatype='integer' datatype-customized='true' name='[Runs - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [Runs], &quot;*&quot;, 1 ) ))' />
+            </column>
+            <column datatype='string' name='[Runs]' role='dimension' type='nominal' />
+            <column-instance column='[Opposition]' derivation='None' name='[none:Opposition:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1032450224440016909]' derivation='User' name='[usr:Calculation_1032450224440016909:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0p02n521q2hav112a0qdr1b5ig79].[usr:Calculation_1032450224440016909:qk]</rows>
+        <cols>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Opposition:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Graph 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Virat_Kohli_ODI_changed' name='federated.0p02n521q2hav112a0qdr1b5ig79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0p02n521q2hav112a0qdr1b5ig79'>
+            <column datatype='integer' name='[Runs - Split 2 (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='1' formula='[Runs - Split 2]' peg='0' size='10.5' />
+            </column>
+            <column caption='Runs - Split 2' datatype='integer' datatype-customized='true' name='[Runs - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [Runs], &quot;*&quot;, 1 ) ))' />
+            </column>
+            <column datatype='string' name='[Runs]' role='dimension' type='nominal' />
+            <column-instance column='[Runs - Split 2]' derivation='Count' name='[cnt:Runs - Split 2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Runs - Split 2 (bin)]' derivation='None' name='[none:Runs - Split 2 (bin):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+          </pane>
+        </panes>
+        <rows>[federated.0p02n521q2hav112a0qdr1b5ig79].[cnt:Runs - Split 2:qk]</rows>
+        <cols>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2 (bin):qk]</cols>
+        <show-full-range>
+          <column>[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs - Split 2 (bin)]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+    <worksheet name='Graph 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Virat_Kohli_ODI_changed' name='federated.0p02n521q2hav112a0qdr1b5ig79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0p02n521q2hav112a0qdr1b5ig79'>
+            <column datatype='integer' name='[Runs - Split 2 (bin)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='1' formula='[Runs - Split 2]' peg='0' size='10.5' />
+            </column>
+            <column caption='Runs - Split 2' datatype='integer' datatype-customized='true' name='[Runs - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [Runs], &quot;*&quot;, 1 ) ))' />
+            </column>
+            <column datatype='string' name='[Runs]' role='dimension' type='nominal' />
+            <column datatype='real' name='[SR]' role='measure' type='quantitative' />
+            <column-instance column='[SR]' derivation='Avg' name='[avg:SR:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Runs - Split 2]' derivation='Count' name='[cnt:Runs - Split 2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Runs - Split 2 (bin)]' derivation='None' name='[none:Runs - Split 2 (bin):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <tooltip column='[federated.0p02n521q2hav112a0qdr1b5ig79].[avg:SR:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0p02n521q2hav112a0qdr1b5ig79].[cnt:Runs - Split 2:qk]</rows>
+        <cols>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2 (bin):qk]</cols>
+        <show-full-range>
+          <column>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2 (bin):qk]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Virat_Kohli_ODI_changed' name='federated.0p02n521q2hav112a0qdr1b5ig79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0p02n521q2hav112a0qdr1b5ig79'>
+            <column caption='Runs - Split 2' datatype='integer' datatype-customized='true' name='[Runs - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0p02n521q2hav112a0qdr1b5ig79].[Runs]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [Runs], &quot;*&quot;, 1 ) ))' />
+            </column>
+            <column datatype='string' name='[Runs]' role='dimension' type='nominal' />
+            <column-instance column='[Runs - Split 2]' derivation='Count' name='[cnt:Runs - Split 2:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0p02n521q2hav112a0qdr1b5ig79].[cnt:Runs - Split 2:qk]</rows>
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Graph 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Opposition:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Graph 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[cnt:Runs:ok]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2:ok]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Graph 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447275028:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447303701:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447451158:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447504407:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447602712:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224447717401:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Calculation_1032450224448073754:qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2 (bin):qk]</field>
+            <field>[federated.0p02n521q2hav112a0qdr1b5ig79].[none:Runs - Split 2:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+</workbook>
